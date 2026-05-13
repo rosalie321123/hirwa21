@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Departments Accordion</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f4f6f9;
+  text-align: center;
+}
+
+/* HEADER */
+header{
+    background: rgb(5, 203, 238);
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-title{
+    text-align:center;
+    font-size:40px;
+    font-weight:bold;
+}
+
+/* NAV */
+
+
+nav{
+display:flex;
+justify-content:center;
+background:#0055aa;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+z-index:100;
+flex-wrap:wrap;
+}
+
+nav a{
+padding:15px 20px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+position:relative;
+}
+
+nav a:hover{
+color: chartreuse;
+}
+
+nav a.active::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+width:100%;
+height:3px;
+background:#0073e6;
+border-radius:2px;
+}
+
+/* BOX */
+.box {
+    width: 1000px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+/* BUTTON */
+.dep {
+    background: #3498db;
+    color: white;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* CONTENT (animation) */
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background: #f1f1f1;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* when open */
+.content.show {
+    padding: 10px;
+    max-height: 2000px;
+}
+
+/* CARDS */
+.card{
+    background:white;
+    padding:15px;
+    margin:10px 0;
+    border-radius:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    text-align:left;
+}
+
+/* SOCIAL ICONS */
+.icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 22px;
+}
+.fb { background: #1877f2; }
+.yt { background: #ff0000; }
+.tt { background: #000; }
+.ig { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4); }
+
+footer{
+    background: rgb(5, 203, 238);
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+   <a href="image.html">
+    <img src="2.png" height="100">
+   </a>
+
+  <div style="text-align: center;font-size:50px"><b>WELCOME TO GS REMERA TSS</b></div>
+
+   <img src="3.png" height="80">
+</header>
+
+
+<nav>
+   
+    <a href="Home.html">Home</a>
+    <a href="department.html">Department</a>
+    <a href="stakeholder.html">Stakeholders</a>
+    <a href="log in2.html">Accounting</a>
+    <a href="log in.html">marks portal</a>
+    <a href="event.html">Events & publication</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="box">
+    <h1>GS remera TSS Department</h1>
+
+    <div class="dep" onclick="toggle(this)">Nursery</div>
+    <div class="content">
+     
+        <div class="header">
+    <h1 style="color:rgb(114, 227, 8);text-align: center";>Nursery Department</h1>
+    <p style="text-align: center ;color: rgb(52, 8, 227);font-size: 20px;">Building Strong Foundations for Young Learners</p>
+</div>
+
+
+<div class="container">
+
+    <div class="card">
+        <h2>About Nursery</h2>
+        <p>The nursery department is the first stage of formal education for children aged 3–5 years. It introduces basic learning skills in a friendly and playful environment.</p>
+    </div><br>
+
+    <div class="card">
+        <h2>Objectives</h2>
+        <ul>
+            <li>Develop language and communication skills</li>
+            <li>Introduce basic counting and shapes</li>
+            <li>Improve social interaction and teamwork</li>
+            <li>Support emotional and physical growth</li>
+        </ul>
+    </div>
+<br>
+    <div class="card">
+        <h2>Subjects</h2>
+        <ul>
+            <li>Literacy</li>
+            <li>Numeracy</li>
+            <li>sports</li>
+        </ul>
+    </div><br>
+
+    <div class="card">
+        <h2>Learning Methods</h2>
+        <p>We use fun and interactive methods such as songs, storytelling, drawing, 
+            group games, and learning through play.</p>
+    </div><br>
+
+    <div class="card">
+        <h2>Facilities</h2>
+        <ul>
+            <li>Colorful classrooms</li>
+            <li>Safe playground</li>
+            <li>Learning toys and books</li>
+            <li>Child-friendly furniture</li>
+        </ul>
+    </div><br>
+
+    <div class="card">
+        <h2>Importance</h2>
+        <p>Nursery education builds a strong foundation for future academic success,
+             improves confidence, and develops essential life skills.</p>
+    </div>
+
+</div>
+
+    </div>
+
+    <div class="dep" onclick="toggle(this)">Primary</div>
+    <div class="content">
+       
+        <div class="header">
+    <h1 style="color:rgb(114, 227, 8);text-align: center";>Primary Department</h1>
+    <p style="text-align: center ;color: rgb(52, 8, 227);font-size: 20px;">Teaching the public studies for primary  learners</p>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Overview</h2>
+        <p>
+            The Primary Department provides foundational education for learners from Primary 1 to Primary 6. 
+            It focuses on developing academic skills, character, and social abilities in a supportive environment.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Academic Program</h2>
+        <ul>
+            <li>English</li>
+            <li>Mathematics</li>
+            <li>Science</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Teaching Approach</h2>
+        <p>
+            Lessons are interactive and learner-centered, using group work, games, and practical activities 
+            to encourage creativity and critical thinking.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Moral & Social Development</h2>
+        <ul>
+            <li>Discipline and responsibility</li>
+            <li>Respect for others</li>
+            <li>Teamwork and cooperation</li>
+            <li>Good values and behavior</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Co-Curricular Activities</h2>
+        <ul>
+            <li>Sports and physical education</li>
+            <li>Music, dance, and drama</li>
+            <li>Art and craft</li>
+            <li>School clubs</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Assessment</h2>
+        <p>
+            Students are evaluated through continuous assessment, tests, and exams. 
+            Feedback helps them improve and succeed academically.
+        </p>
+    </div>
+
+</div>
+
+
+
+    </div>
+
+    <div class="dep" onclick="toggle(this)">Secondary</div>
+    <div class="content">
+       
+        
+<div class="header">
+    <h1 style="color:rgb(114, 227, 8);text-align: center";>Secondary Department</h1>
+    <p style="text-align: center ;color: rgb(52, 8, 227);font-size: 20px;">Building Strong Academic Foundations for Future Success</p>
+</div>
+
+    <div class="container">
+
+    <div class="card">
+        <h2>Overview</h2>
+        <p>
+            The Secondary General Department provides students with a broad and balanced education.
+            It focuses on developing knowledge, critical thinking, and preparing learners for higher education.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Subjects Offered</h2>
+        <ul>
+            <li>Mathematics</li>
+            <li>Physics</li>
+            <li>Biology</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Objectives</h2>
+        <ul>
+            <li>Provide a strong academic foundation</li>
+            <li>Develop problem-solving skills</li>
+            <li>Prepare students for national exams</li>
+            <li>Guide career choices</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Skills Developed</h2>
+        <ul>
+            <li>Critical thinking</li>
+            <li>Communication skills</li>
+            <li>Digital literacy</li>
+            <li>Creativity and innovation</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Teaching Methods</h2>
+        <ul>
+            <li>Group discussions and projects</li>
+            <li>Practical experiments</li>
+            <li>Use of ICT tools</li>
+            <li>Continuous assessment</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Assessment</h2>
+        <ul>
+            <li>Tests and assignments</li>
+            <li>Mid-term and final exams</li>
+            <li>National examinations</li>
+        </ul>
+    </div>
+    </div>
+    </div>
+
+    <div class="dep" onclick="toggle(this)">Software Development</div>
+    <div class="content">
+        
+        <div class="header">
+    <h1 style="color:rgb(114, 227, 8); text-align: center;">Software Development Department</h1>
+    <p style="text-align: center;color: rgb(8, 18, 206);font-size: 20px;">Building Future Programmers and Innovators</p>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Overview</h2>
+        <p>
+            The Software Development Department in a Technical Secondary School equips students with
+            practical and theoretical knowledge in programming, system design, and digital technology.
+            It prepares learners for careers in the IT industry or further studies in computer science.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Core Subjects</h2>
+        <ul>
+            <li>Computer science</li>
+            <li>Entrepreneurship</li>
+            <li>Mathematics</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Objectives</h2>
+        <ul>
+            <li>Develop strong coding skills</li>
+            <li>Prepare students for software careers</li>
+            <li>Encourage innovation and problem-solving</li>
+            <li>Promote digital entrepreneurship</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Skills Developed</h2>
+        <ul>
+            <li>Web and app development</li>
+            <li>Debugging and problem-solving</li>
+            <li>Team collaboration (projects)</li>
+            <li>Logical thinking</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Teaching Methods</h2>
+        <ul>
+            <li>Hands-on coding practice</li>
+            <li>Real-world projects</li>
+            <li>Group collaboration</li>
+            <li>Internships and industrial training</li>
+        </ul>
+    </div>
+
+    
+
+    <div class="card">
+        <h2>Career Opportunities</h2>
+        <ul>
+            <li>Web Developer</li>
+            <li>Software Engineer</li>
+            <li>IT Support Technician</li>
+            <li>Freelancer / Entrepreneur</li>
+        </ul>
+    </div>
+
+</div>
+
+    </div>
+
+</div> 
+
+
+
+
+<footer>
+    <div class="social-icons">
+  <a href="https://www.facebook.com" class="icon fb"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.youtube.com" class="icon yt"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.tiktok.com" class="icon tt"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.instagram.com" class="icon ig"><i class="fab fa-instagram"></i></a>
+</div>
+    <h2 style="text-align:center;">Contact Us</h2>
+    <p style="text-align:center;">Email: busoro1972@gmail.com</p>
+    <p style="text-align:center;">Phone:+250782160168</p>
+
+
+    <p>© 2026 G.S Remera TSS | All Rights Reserved</p>
+</footer>
+<script>
+function toggle(button) {
+    let allContents = document.querySelectorAll(".content");
+
+    // close all first
+    allContents.forEach(c => {
+        c.classList.remove("show");
+    });
+
+    // open current
+    let content = button.nextElementSibling;
+    content.classList.add("show");
+}
+</script>
+
+
+</body>
+</html>

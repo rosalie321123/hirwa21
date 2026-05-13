@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Students Management - GS Remera TSS</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+/* HEADER */
+header{
+    background:rgb(5, 203, 238);
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+nav{
+    background:#0055aa;
+    padding:10px;
+    text-align:center;
+}
+
+nav a:hover{
+    color: chartreuse;
+    text-decoration: underline;
+    text-decoration-color: white;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
+}
+
+/* CONTAINER */
+.container{
+    width:90%;
+    margin:auto;
+    margin-top:30px;
+}
+
+/* FORM */
+.form-box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom:20px;
+}
+
+.form-box h2{
+    text-align:center;
+    color:#003366;
+    margin-bottom:15px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#003366;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0055aa;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+th{
+    background:#003366;
+    color:white;
+    padding:12px;
+}
+
+td{
+    text-align:center;
+    padding:12px;
+    border:1px solid #ddd;
+}
+
+/* ACTION BUTTONS */
+.action-btn{
+    padding:5px 10px;
+    border:none;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.edit{background:orange;}
+.delete{background:red;}
+
+</style>
+</head>
+
+<body>
+
+
+  <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+    
+   <a href="image.html">
+    <img src="2.png" alt="Image" height="100" style="margin-right: 20px;">
+</a>
+   <div style="text-align: center;font-size:50px"><b>WELCOME TO GS REMERA TSS</b></div>
+    <img src="3.png" alt="Image" height="100" style="margin-right: 20px;">
+    
+</header>
+</nav>
+
+
+<nav>
+    <a href="Home.html">Home</a>
+    <a href="department.html">Department</a>
+    <a href="stakeholder.html">Stakeholders</a>
+    <a href="log in2.html">Accounting</a>
+    <a href="log in.html">marks portal</a>
+    <a href="event.html">Events & publication</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+
+    <!-- FORM -->
+    <div class="form-box">
+
+        <h2>Add / Edit Student</h2>
+
+        <input type="text" id="name" placeholder="Student Name">
+        <input type="text" id="class" placeholder="Class">
+        <input type="number" id="age" placeholder="Age">
+
+        <button onclick="addStudent()">Save Student</button>
+
+    </div>
+
+    <!-- TABLE -->
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="studentTable"></tbody>
+    </table>
+
+</div>
+
+<script>
+
+let editIndex = -1;
+
+/* SHOW STUDENTS */
+function showStudents(){
+
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+
+    let table = document.getElementById("studentTable");
+    table.innerHTML = "";
+
+    students.forEach((s,index)=>{
+
+        table.innerHTML += `
+        <tr>
+            <td>${s.name}</td>
+            <td>${s.cls}</td>
+            <td>${s.age}</td>
+            <td>
+                <button class="action-btn edit" onclick="editStudent(${index})">Edit</button>
+                <button class="action-btn delete" onclick="deleteStudent(${index})">Delete</button>
+            </td>
+        </tr>
+        `;
+    });
+}
+
+/* ADD / UPDATE */
+function addStudent(){
+
+    let name = document.getElementById("name").value;
+    let cls = document.getElementById("class").value;
+    let age = document.getElementById("age").value;
+
+    if(name==="" || cls==="" || age===""){
+        alert("Fill all fields");
+        return;
+    }
+
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+
+    let data = {name, cls, age};
+
+    if(editIndex === -1){
+        students.push(data);
+    }else{
+        students[editIndex] = data;
+        editIndex = -1;
+    }
+
+    localStorage.setItem("students", JSON.stringify(students));
+
+    clearForm();
+    showStudents();
+}
+
+/* EDIT */
+function editStudent(index){
+
+    let students = JSON.parse(localStorage.getItem("students"));
+
+    let s = students[index];
+
+    document.getElementById("name").value = s.name;
+    document.getElementById("class").value = s.cls;
+    document.getElementById("age").value = s.age;
+
+    editIndex = index;
+}
+
+/* DELETE */
+function deleteStudent(index){
+
+    let students = JSON.parse(localStorage.getItem("students"));
+
+    students.splice(index,1);
+
+    localStorage.setItem("students", JSON.stringify(students));
+
+    showStudents();
+}
+
+/* CLEAR */
+function clearForm(){
+    document.getElementById("name").value="";
+    document.getElementById("class").value="";
+    document.getElementById("age").value="";
+}
+
+/* LOAD */
+window.onload = showStudents;
+
+</script>
+
+</body>
+</html>

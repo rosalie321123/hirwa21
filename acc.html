@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Dashboard</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+    width:250px;
+    height:100%;
+    background:#0b5ed7;
+    padding-top:20px;
+}
+
+.sidebar h2{
+    color:white;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px 25px;
+    transition:0.3s;
+    font-size:18px;
+}
+
+.sidebar a:hover{
+    background:white;
+    color:#0b5ed7;
+}
+
+.sidebar i{
+    margin-right:10px;
+}
+
+/* MAIN */
+
+.main{
+    margin-left:250px;
+    padding:20px;
+}
+
+/* HEADER */
+
+.header{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header h1{
+    color:#333;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.profile img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+}
+
+/* DASHBOARD CARDS */
+
+.dashboard{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card i{
+    font-size:40px;
+    margin-bottom:15px;
+    color:#0b5ed7;
+}
+
+.card h2{
+    margin-bottom:10px;
+    color:#222;
+}
+
+.card p{
+    color:gray;
+    font-size:18px;
+}
+
+/* TABLE */
+
+.table-box{
+    margin-top:30px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    overflow-x:auto;
+}
+
+.table-box h2{
+    margin-bottom:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th,
+table td{
+    padding:15px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
+
+table th{
+    background:#0b5ed7;
+    color:white;
+}
+
+.paid{
+    color:green;
+    font-weight:bold;
+}
+
+.pending{
+    color:orange;
+    font-weight:bold;
+}
+
+.failed{
+    color:red;
+    font-weight:bold;
+}
+
+/* BUTTON */
+
+.btn{
+    background:#0b5ed7;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#084298;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+}
+
+.main{
+    margin-left:0;
+}
+
+.dashboard{
+    grid-template-columns:1fr;
+}
+
+.header{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <h2>PAYMENT</h2>
+
+    <a href="#">
+        <i class="fas fa-home"></i>
+        Dashboard
+    </a>
+
+    <a href="#">
+        <i class="fas fa-credit-card"></i>
+        Payments
+    </a>
+
+    <a href="#">
+        <i class="fas fa-wallet"></i>
+        Wallet
+    </a>
+
+    <a href="#">
+        <i class="fas fa-chart-line"></i>
+        Reports
+    </a>
+
+    <a href="#">
+        <i class="fas fa-cog"></i>
+        Settings
+    </a>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>Payment Dashboard</h1>
+
+        <div class="profile">
+            <img src="https://i.pravatar.cc/100" alt="">
+            <span>Admin</span>
+        </div>
+
+    </div>
+
+    <!-- DASHBOARD CARDS -->
+
+    <section class="dashboard">
+
+        <div class="card">
+            <i class="fas fa-money-bill-wave"></i>
+            <h2>$12,500</h2>
+            <p>Total Revenue</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-check-circle"></i>
+            <h2>320</h2>
+            <p>Successful Payments</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-clock"></i>
+            <h2>45</h2>
+            <p>Pending Payments</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-users"></i>
+            <h2>120</h2>
+            <p>Customers</p>
+        </div>
+
+    </section>
+
+    <!-- TABLE -->
+
+    <div class="table-box">
+
+        <h2>Recent Transactions</h2>
+
+        <table>
+
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Method</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
+            <tr>
+                <td>Osama</td>
+                <td>$200</td>
+                <td>Mobile Money</td>
+                <td class="paid">Paid</td>
+                <td><button class="btn">View</button></td>
+            </tr>
+
+            <tr>
+                <td>Aline</td>
+                <td>$150</td>
+                <td>PayPal</td>
+                <td class="pending">Pending</td>
+                <td><button class="btn">View</button></td>
+            </tr>
+
+            <tr>
+                <td>Eric</td>
+                <td>$300</td>
+                <td>Visa Card</td>
+                <td class="paid">Paid</td>
+                <td><button class="btn">View</button></td>
+            </tr>
+
+            <tr>
+                <td>Diane</td>
+                <td>$100</td>
+                <td>Bank</td>
+                <td class="failed">Failed</td>
+                <td><button class="btn">View</button></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

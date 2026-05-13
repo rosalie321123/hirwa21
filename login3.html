@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accounting Login System</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+/* LOGIN */
+
+.login-box{
+    width:350px;
+    margin:100px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.login-box h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#003366;
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#003366;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+    display:none;
+}
+
+/* HEADER */
+
+.header{
+    background:#003366;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:200px;
+    height:100vh;
+    background:#0b4a8b;
+    position:fixed;
+    top:0;
+    left:0;
+    padding-top:60px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    padding:15px;
+    text-decoration:none;
+}
+
+.main{
+    margin-left:200px;
+    padding:20px;
+}
+
+/* ROLE COLORS */
+
+.admin{
+    color:gold;
+    font-weight:bold;
+}
+
+.accountant{
+    color:lightgreen;
+    font-weight:bold;
+}
+
+</style>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div class="login-box" id="loginBox">
+
+    <h2>Login System</h2>
+
+    <input type="text" id="username" placeholder="Username">
+
+    <input type="password" id="password" placeholder="Password">
+
+    <select id="role">
+        <option value="admin">Admin</option>
+        <option value="accountant">Accountant</option>
+    </select>
+
+    <button onclick="login()">
+        Login
+    </button>
+
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h3>School Accounting System</h3>
+        <div id="userInfo"></div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <a href="#">Dashboard</a>
+        <a href="#">Students</a>
+        <a href="#">Reports</a>
+
+        <a href="#" onclick="logout()">Logout</a>
+
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <h2>Welcome to Dashboard</h2>
+
+        <p>This is secure system based on role.</p>
+
+    </div>
+
+</div>
+
+<script>
+
+/* LOGIN FUNCTION */
+
+function login(){
+
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+    let role = document.getElementById("role").value;
+
+    if(user === "" || pass === ""){
+        alert("Fill all fields!");
+        return;
+    }
+
+    // simple fake authentication
+    if(role === "admin" && pass === "1234" || role === "accountant" && pass === "1234"){
+
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+
+        document.getElementById("userInfo").innerHTML =
+        `User: ${user} | Role: <span class="${role}">${role}</span>`;
+
+    }else{
+        alert("Wrong credentials!");
+    }
+
+}
+
+/* LOGOUT */
+
+function logout(){
+
+    document.getElementById("loginBox").style.display = "block";
+    document.getElementById("dashboard").style.display = "none";
+
+}
+
+</script>
+
+</body>
+</html>

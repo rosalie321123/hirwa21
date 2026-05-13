@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GS Remera TSS - Admin System</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:#f4f6f9;
+    overflow-x:hidden;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+
+header{
+    background:rgb(5, 203, 238);
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+
+    position:relative;
+    z-index:1000;
+}
+
+
+
+nav{
+display:flex;
+justify-content:center;
+background:#0055aa;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+z-index:100;
+flex-wrap:wrap;
+}
+
+nav a{
+padding:15px 20px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+position:relative;
+}
+
+nav a:hover{
+color: chartreuse;
+}
+
+nav a.active::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+width:100%;
+height:3px;
+background:#0073e6;
+border-radius:2px;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:220px;
+    height:100vh;
+    background:#0b4a8b;
+    position:fixed;
+    top:0;
+    left:0;
+    padding-top:120px;
+
+    z-index:500;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    padding:15px;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.sidebar a:hover{
+    background:white;
+    color:#003366;
+}
+
+/* MAIN */
+.main{
+    margin-left:230px;
+    padding:30px;
+    flex:1;
+}
+
+/* CARDS */
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    width:230px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card i{
+    font-size:40px;
+    color:#003366;
+    margin-bottom:10px;
+}
+
+/* FORM */
+.form-box{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    margin-top:25px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.1);
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+    border-top:5px solid #003366;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:12px;
+    background:#003366;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0055aa;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    margin-top:20px;
+    border-collapse:collapse;
+    background:white;
+}
+
+th{
+    background:#003366;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+
+/* STATUS */
+.paid{color:green;font-weight:bold;}
+.pending{color:orange;font-weight:bold;}
+
+/* FOOTER (ON TOP OF SIDEBAR) */
+footer{
+    background: rgb(5, 203, 238);
+    color:white;
+    text-align:center;
+    padding:20px;
+    width:100%;
+    margin-top:auto;
+
+    position:relative;
+    z-index:1000;
+}
+
+/* ICONS */
+.icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 22px;
+}
+
+.fb { background: #1877f2; }
+.yt { background: #ff0000; }
+.tt { background: #000000; }
+.ig { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4); }
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="image.html">
+        <img src="2.png" height="80">
+    </a>
+
+    <h1>WELCOME TO GS REMERA TSS</h1>
+
+    <img src="3.png" height="80">
+</header>
+
+<!-- NAV -->
+<nav>
+    <a href="Home.html">Home</a>
+    <a href="department.html">Department</a>
+    <a href="stakeholder.html">Stakeholders</a>
+    <a href="log in2.html">Accounting</a>
+    <a href="log in.html">Marks Portal</a>
+    <a href="event.html">Events</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <a onclick="showDashboard()"><i class="fa fa-chart-line"></i> Dashboard</a>
+    <a onclick="showStudents()"><i class="fa fa-users"></i> Students</a>
+    <a onclick="showFinance()"><i class="fa fa-money-bill"></i> Finance</a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+    <div id="contentArea">
+        <h2>Welcome Admin Dashboard</h2>
+    </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+
+let students = [];
+
+function showDashboard(){
+    document.getElementById("contentArea").innerHTML = `
+    <h2>Dashboard</h2>
+    <div class="cards">
+        <div class="card"><i class="fa fa-user-graduate"></i><h3>Students</h3><h2>1,475</h2></div>
+        <div class="card"><i class="fa fa-chalkboard-teacher"></i><h3>Teachers</h3><h2>60</h2></div>
+        <div class="card"><i class="fa fa-money-bill"></i><h3>Finance</h3><h2>OK</h2></div>
+    </div>`;
+}
+
+function showStudents(){
+    document.getElementById("contentArea").innerHTML = `
+    <h2>Students Management</h2>
+
+    <div class="form-box">
+        <input id="sname" placeholder="Name">
+        <input id="sclass" placeholder="Class">
+        <input id="sage" type="number" placeholder="Age">
+        <button onclick="addStudent()">Save</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr><th>Name</th><th>Class</th><th>Age</th></tr>
+        </thead>
+        <tbody id="studentTable"></tbody>
+    </table>`;
+
+    loadStudents();
+}
+
+function addStudent(){
+    let name = document.getElementById("sname").value;
+    let cls = document.getElementById("sclass").value;
+    let age = document.getElementById("sage").value;
+
+    if(!name || !cls || !age) return alert("Fill all fields");
+
+    students.push({name,cls,age});
+    loadStudents();
+
+    document.getElementById("sname").value="";
+    document.getElementById("sclass").value="";
+    document.getElementById("sage").value="";
+}
+
+function loadStudents(){
+    let table = document.getElementById("studentTable");
+    if(!table) return;
+
+    table.innerHTML = "";
+    students.forEach(s=>{
+        table.innerHTML += `
+        <tr><td>${s.name}</td><td>${s.cls}</td><td>${s.age}</td></tr>`;
+    });
+}
+
+function showFinance(){
+    document.getElementById("contentArea").innerHTML = `
+    <h2>Finance</h2>
+
+    <div class="form-box">
+        <input id="pname" placeholder="Name">
+        <input id="pclass" placeholder="Class">
+        <input id="pamount" placeholder="Amount">
+        <select id="pstatus">
+            <option>Paid</option>
+            <option>Pending</option>
+        </select>
+        <button onclick="addPayment()">Save</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr><th>Name</th><th>Class</th><th>Amount</th><th>Status</th></tr>
+        </thead>
+        <tbody id="paymentTable"></tbody>
+    </table>`;
+
+    showPayments();
+}
+
+function addPayment(){
+    let payments = JSON.parse(localStorage.getItem("payments")) || [];
+
+    payments.push({
+        name: pname.value,
+        cls: pclass.value,
+        amount: pamount.value,
+        status: pstatus.value
+    });
+
+    localStorage.setItem("payments", JSON.stringify(payments));
+    showPayments();
+}
+
+function showPayments(){
+    let payments = JSON.parse(localStorage.getItem("payments")) || [];
+    let table = document.getElementById("paymentTable");
+    if(!table) return;
+
+    table.innerHTML = "";
+
+    payments.forEach(p=>{
+        table.innerHTML += `
+        <tr>
+            <td>${p.name}</td>
+            <td>${p.cls}</td>
+            <td>${p.amount}</td>
+            <td class="${p.status.toLowerCase()}">${p.status}</td>
+        </tr>`;
+    });
+}
+
+</script>
+
+<!-- FOOTER -->
+<footer>
+    <div>
+        <a href="#" class="icon fb"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="icon yt"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="icon tt"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="icon ig"><i class="fab fa-instagram"></i></a>
+    </div>
+ <h2 style="text-align:center;">Contact Us</h2>
+    <p style="text-align:center;">Email: busoro1972@gmail.com</p>
+    <p style="text-align:center;">Phone:+250782160168</p>
+
+
+    <p>© 2026 G.S Remera TSS | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

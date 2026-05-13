@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - School</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+
+
+.header-title{
+    text-align:center;
+    font-size:40px;
+    font-weight:bold;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    padding:20px;
+}
+
+.wrapper{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+/* CARD DESIGN */
+.card{
+    background:white;
+    width:320px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+h3{
+    color:#003366;
+}
+
+/* FORM STYLE */
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    background:#28a745;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#218838;
+}
+
+.info p{
+    margin:8px 0;
+}
+
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f4f4;
+}
+
+header{
+    background:rgb(5, 203, 238);
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+
+
+nav{
+display:flex;
+justify-content:center;
+background:#0055aa;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+z-index:100;
+flex-wrap:wrap;
+}
+
+nav a{
+padding:15px 20px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+position:relative;
+}
+
+nav a:hover{
+color: chartreuse;
+}
+
+nav a.active::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+width:100%;
+height:3px;
+background:#0073e6;
+border-radius:2px;
+}
+
+section{
+    padding:30px;
+}
+
+.hero{
+    background:white;
+    text-align:center;
+    padding:50px;
+}
+
+.hero h1{
+    color:rgb(114, 227, 8);
+    font-size:40px;
+}
+
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
+
+.card{
+    background:white;
+    width:280px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+.container {
+  display: flex;
+  gap: 20px;          
+  flex-wrap: wrap;    
+  padding: 20px;
+}
+
+.card {
+  background: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;       
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+
+.icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.fb { background: #1877f2; }
+.yt { background: #ff0000; }
+.tt { background: #000000; }
+.ig { 
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+}
+
+
+.icon:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+.container{
+    background:white;
+    max-width:800px;
+    margin:auto;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+iframe{
+    width:100%;
+    height:300px;
+    border:0;
+    border-radius:10px;
+}
+
+footer{
+    background: rgb(5, 203, 238);
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+</style>
+
+<body>
+    
+     <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+    
+   <a href="image.html">
+    <img src="2.png" alt="Image" height="100" style="margin-right: 20px;">
+</a>
+   <div style="text-align: center;font-size:50px"><b>WELCOME TO GS REMERA TSS</b></div>
+    <img src="3.png" alt="Image" height="100" style="margin-right: 20px;">
+    
+</header>
+
+
+<nav>
+
+    
+
+    <a href="Home.html">Home</a>
+    <a href="department.html">Department</a>
+    <a href="stakeholder.html">Stakeholders</a>
+   <a href="log in2.html">Accounting</a>
+    <a href="log in.html">marks portal</a>
+    <a href="event.html">Events & publication</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+
+<div class="wrapper">
+
+    <div class="card info">
+        <h3>School Information</h3>
+        <p> Location: Rulindo, Rwanda</p>
+        <p> Phone: +250 782160168</p>
+        <p> Email: busoro1972@gmail.com</p>
+        <p> Time: Monday - Friday: 07:00 - 17:00</p>
+    </div>
+
+    <div class="card">
+        <h3>Send a Message</h3>
+
+        <form>
+          
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Write your message..." required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+</div>
+
+</div><br>
+
+<div class="container">
+    <h2>G.S REMERA TSS Location</h2>
+    <p>District: RULINDO | Sector: CYINZUZI</p>
+
+    <iframe 
+        src="https://www.google.com/maps?q=G.S+REMERA+TSS+Rulindo+Cyinzuzi&output=embed"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+</div>
+
+
+<footer>
+    <div class="social-icons">
+  <a href="https://www.facebook.com" class="icon fb"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.youtube.com" class="icon yt"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.tiktok.com" class="icon tt"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.instagram.com" class="icon ig"><i class="fab fa-instagram"></i></a>
+</div>
+
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">Email: busoro1972@gmail.com</p>
+    <p style="text-align:center;">Phone:+250782160168</p>
+    <p>© 2026 G.S Remera TSS | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

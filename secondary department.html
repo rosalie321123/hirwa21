@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+            
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f6f9;
+}
+            
+header{
+    background:rgb(5, 203, 238);
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+nav{
+    background:#0055aa;
+    padding:10px;
+    text-align:center;
+}
+
+nav a:hover{
+    color: chartreuse;
+    text-decoration: underline;
+    text-decoration-color: white;
+}
+
+
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
+}
+
+
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
+
+.card{
+    background:white;
+    width:280px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+.container {
+  display: flex;
+  gap: 20px;          
+  flex-wrap: wrap;    
+  padding: 20px;
+}
+
+.card {
+  background: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;       
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.btn-left {
+  text-align: left;
+}
+
+.back-btn {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: #06de80;
+}
+
+.icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.fb { background: #1877f2; }
+.yt { background: #ff0000; }
+.tt { background: #000000; }
+.ig { 
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+}
+
+
+.icon:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+footer {
+  background: rgb(5, 203, 238);
+  color: white;
+  text-align: center;
+  padding: 30px;
+
+  width: 100%;     
+  position: relative; 
+
+}
+</style>
+</head>
+<body>
+
+   <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+    
+   <a href="image.html">
+    <img src="2.png" alt="Image" height="100" style="margin-right: 20px;">
+</a>
+    <div style="text-align: center;font-size:50px">WELCOME TO GS REMERA TSS</div>
+    <img src="3.png" alt="Image" height="100" style="margin-right: 20px;">
+    
+</header>
+
+<nav>
+    <a href="Home.html">Home</a>
+    <a href="department.html">Department</a>
+    <a href="stakeholder.html">Stakeholders</a>
+    <a href="accounting.html">Accounting</a>
+    <a href="marks portal.html">Marks portal</a>
+    <a href="event.html">Events & publication</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="header">
+    <h1 style="color:rgb(114, 227, 8);text-align: center";>Secondary Department</h1>
+    <p style="text-align: center ;color: rgb(52, 8, 227);font-size: 20px;">Building Strong Academic Foundations for Future Success</p>
+</div>
+
+    <div class="container">
+
+    <div class="card">
+        <h2>Overview</h2>
+        <p>
+            The Secondary General Department provides students with a broad and balanced education.
+            It focuses on developing knowledge, critical thinking, and preparing learners for higher education.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Subjects Offered</h2>
+        <ul>
+            <li>Mathematics</li>
+            <li>Physics</li>
+            <li>Biology</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Objectives</h2>
+        <ul>
+            <li>Provide a strong academic foundation</li>
+            <li>Develop problem-solving skills</li>
+            <li>Prepare students for national exams</li>
+            <li>Guide career choices</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Skills Developed</h2>
+        <ul>
+            <li>Critical thinking</li>
+            <li>Communication skills</li>
+            <li>Digital literacy</li>
+            <li>Creativity and innovation</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Teaching Methods</h2>
+        <ul>
+            <li>Group discussions and projects</li>
+            <li>Practical experiments</li>
+            <li>Use of ICT tools</li>
+            <li>Continuous assessment</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Assessment</h2>
+        <ul>
+            <li>Tests and assignments</li>
+            <li>Mid-term and final exams</li>
+            <li>National examinations</li>
+        </ul>
+    </div>
+    
+<button onclick="window.history.back()" class="back-btn">← Back</button>
+
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+    <footer>
+    
+    <div class="social-icons">
+  <a href="https://www.facebook.com" class="icon fb"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.youtube.com" class="icon yt"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.tiktok.com" class="icon tt"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.instagram.com" class="icon ig"><i class="fab fa-instagram"></i></a>
+</div>
+
+    <h2 style="text-align:center;">Contact Us</h2>
+    <p style="text-align:center;">Email: busoro1972@gmail.com</p>
+    <p style="text-align:center;">Phone:+250782160168</p>
+    <p>© 2026 G.S Remera TSS | All Rights Reserved</p>
+</footer>
+        </body>
+        </html>

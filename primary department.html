@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <style>
+            
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f6f9;
+}
+            
+header{
+    background:rgb(5, 203, 238);
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+nav{
+    background:#0055aa;
+    padding:10px;
+    text-align:center;
+}
+
+nav a:hover{
+    color: chartreuse;
+    text-decoration: underline;
+    text-decoration-color: white;
+}
+
+
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-weight:bold;
+}
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
+
+.card{
+    background:white;
+    width:280px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+.container {
+  display: flex;
+  gap: 20px;          
+  flex-wrap: wrap;    
+  padding: 20px;
+}
+
+.card {
+  background: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;       
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+}
+
+.back-btn {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color:  #06de80;
+}
+
+.icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.fb { background: #1877f2; }
+.yt { background: #ff0000; }
+.tt { background: #000000; }
+.ig { 
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+}
+
+
+.icon:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+
+footer {
+  background: rgb(5, 203, 238);
+  color: white;
+  text-align: center;
+  padding: 30px;
+
+  width: 100%;     
+  position: relative; 
+
+}
+</style>
+</head>
+
+
+<body>
+    
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+    
+   <a href="image.html">
+    <img src="2.png" alt="Image" height="100" style="margin-right: 20px;">
+</a>
+    <div style="text-align: center;font-size:50px">WELCOME TO GS REMERA TSS</div>
+    <img src="3.png" alt="Image" height="100" style="margin-right: 20px;">
+    
+</header>
+<nav>
+    <a href="Home.html">Home</a>
+    <a href="department.html">Department</a>
+    <a href="stakeholder.html">Stakeholders</a>
+    <a href="accounting.html">Accounting</a>
+    <a href="marks portal.html">Marks portal</a>
+    <a href="event.html">Events & publication</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="header">
+    <h1 style="color:rgb(114, 227, 8);text-align: center";>Primary Department</h1>
+    <p style="text-align: center ;color: rgb(52, 8, 227);font-size: 20px;">Teaching the public studies for primary  learners</p>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Overview</h2>
+        <p>
+            The Primary Department provides foundational education for learners from Primary 1 to Primary 6. 
+            It focuses on developing academic skills, character, and social abilities in a supportive environment.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Academic Program</h2>
+        <ul>
+            <li>English</li>
+            <li>Mathematics</li>
+            <li>Science</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Teaching Approach</h2>
+        <p>
+            Lessons are interactive and learner-centered, using group work, games, and practical activities 
+            to encourage creativity and critical thinking.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Moral & Social Development</h2>
+        <ul>
+            <li>Discipline and responsibility</li>
+            <li>Respect for others</li>
+            <li>Teamwork and cooperation</li>
+            <li>Good values and behavior</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Co-Curricular Activities</h2>
+        <ul>
+            <li>Sports and physical education</li>
+            <li>Music, dance, and drama</li>
+            <li>Art and craft</li>
+            <li>School clubs</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Assessment</h2>
+        <p>
+            Students are evaluated through continuous assessment, tests, and exams. 
+            Feedback helps them improve and succeed academically.
+        </p>
+    </div>
+
+</div>
+
+<button onclick="window.history.back()" class="back-btn">← Back</button>
+
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+<footer>
+    
+    <div class="social-icons">
+  <a href="https://www.facebook.com" class="icon fb"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.youtube.com" class="icon yt"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.tiktok.com" class="icon tt"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.instagram.com" class="icon ig"><i class="fab fa-instagram"></i></a>
+</div>
+
+    <h2 style="text-align:center;">Contact Us</h2>
+    <p style="text-align:center;">Email: busoro1972@gmail.com</p>
+    <p style="text-align:center;">Phone:+250782160168</p>
+    <p>© 2026 G.S Remera TSS | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

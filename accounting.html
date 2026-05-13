@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accounting Page</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6f9;
+    text-align: center;
+}
+
+/* HEADER */
+header{
+    background: rgb(5, 203, 238);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header-title{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+nav{
+display:flex;
+justify-content:center;
+background:#0055aa;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+z-index:100;
+flex-wrap:wrap;
+}
+
+nav a{
+padding:15px 20px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+position:relative;
+}
+
+nav a:hover{
+color: chartreuse;
+}
+
+nav a.active::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+width:100%;
+height:3px;
+background:#0073e6;
+border-radius:2px;
+}
+
+/* CONTAINER */
+.container{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.section{
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+/* FORM */
+form{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+label{
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* SUMMARY */
+.summary{
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* BUTTONS */
+button{
+    padding: 8px 15px;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.save{
+    background: rgb(3, 222, 250);
+    color: white;
+}
+
+.delete{
+    background: rgb(25, 0, 255);
+    color: white;
+}
+
+button:hover{
+    opacity: 0.8;
+}
+
+/* CHART */
+canvas{
+    background: white;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 10px;
+    width: 90% !important;
+    max-width: 700px;
+}
+
+/* FOOTER */
+footer{
+    background: rgb(5, 203, 238);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* SOCIAL ICONS */
+.icon{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    font-size: 22px;
+}
+
+.fb{ background: #1877f2; }
+.yt{ background: #ff0000; }
+.tt{ background: #000; }
+.ig{
+    background: linear-gradient(
+    45deg,
+    #f58529,
+    #dd2a7b,
+    #8134af,
+    #515bd4
+    );
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+<a href="image.html">
+<img src="2.png" alt="School Logo" height="100">
+</a>
+
+<div class="header-title">
+WELCOME TO GS REMERA TSS
+</div>
+
+<img src="3.png" alt="School Logo" height="100">
+
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+<a href="Home.html">Home</a>
+<a href="department.html">Department</a>
+<a href="stakeholder.html">Stakeholders</a>
+<a href="log in2.html">Accounting</a>
+<a href="log in.html">Marks Portal</a>
+<a href="event.html">Events & Publication</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<!-- TITLE -->
+<h2>School Accounting System</h2>
+
+<img src="100.jpeg" alt="Accounting Image" height="100" width="100">
+
+<div class="container">
+
+<!-- INCOME FORM -->
+<div class="section">
+<h3>Income Form</h3>
+
+<form onsubmit="event.preventDefault(); calculate();">
+
+<label>School Fees</label>
+<input type="number" id="fees">
+
+<label>Government Grant</label>
+<input type="number" id="grant">
+
+<label>Donations</label>
+<input type="number" id="donations">
+
+<button type="submit" class="save">Submit</button>
+
+</form>
+</div>
+
+<!-- EXPENSE FORM -->
+<div class="section">
+<h3>Expense Form</h3>
+
+<form onsubmit="event.preventDefault(); calculate();">
+
+<label>Salaries</label>
+<input type="number" id="salaries">
+
+<label>Materials</label>
+<input type="number" id="materials">
+
+<label>Infrastructure</label>
+<input type="number" id="infra">
+
+<button type="submit" class="delete">Submit</button>
+
+</form>
+</div>
+
+</div>
+
+<!-- SUMMARY -->
+<div class="summary">
+
+<p>Total Income: <span id="totalIncome">0</span></p>
+
+<p>Total Expense: <span id="totalExpense">0</span></p>
+
+<p>
+<b>Net Balance: <span id="balance">0</span></b>
+</p>
+
+<button class="save" onclick="saveData()">Save</button>
+
+<button class="delete" onclick="clearData()">Delete</button>
+
+</div>
+
+<!-- CHART -->
+<canvas id="chart" height="100"></canvas>
+
+<script>
+let chart;
+
+/* CALCULATE */
+function calculate(){
+
+let fees = Number(document.getElementById("fees").value) || 0;
+let grant = Number(document.getElementById("grant").value) || 0;
+let donations = Number(document.getElementById("donations").value) || 0;
+
+let salaries = Number(document.getElementById("salaries").value) || 0;
+let materials = Number(document.getElementById("materials").value) || 0;
+let infra = Number(document.getElementById("infra").value) || 0;
+
+let totalIncome = fees + grant + donations;
+let totalExpense = salaries + materials + infra;
+let balance = totalIncome - totalExpense;
+
+document.getElementById("totalIncome").innerText = totalIncome;
+document.getElementById("totalExpense").innerText = totalExpense;
+document.getElementById("balance").innerText = balance;
+
+updateChart(totalIncome, totalExpense);
+}
+
+/* AUTO UPDATE */
+document.querySelectorAll("input").forEach(input => {
+input.addEventListener("input", calculate);
+});
+
+/* SAVE */
+function saveData(){
+
+let data = {
+fees: document.getElementById("fees").value,
+grant: document.getElementById("grant").value,
+donations: document.getElementById("donations").value,
+salaries: document.getElementById("salaries").value,
+materials: document.getElementById("materials").value,
+infra: document.getElementById("infra").value
+};
+
+localStorage.setItem("accountingData", JSON.stringify(data));
+
+alert("Data Saved Successfully!");
+}
+
+/* LOAD */
+window.onload = function(){
+
+let saved = JSON.parse(localStorage.getItem("accountingData"));
+
+if(saved){
+
+document.getElementById("fees").value = saved.fees;
+document.getElementById("grant").value = saved.grant;
+document.getElementById("donations").value = saved.donations;
+document.getElementById("salaries").value = saved.salaries;
+document.getElementById("materials").value = saved.materials;
+document.getElementById("infra").value = saved.infra;
+}
+
+calculate();
+};
+
+/* DELETE */
+function clearData(){
+
+localStorage.removeItem("accountingData");
+
+location.reload();
+}
+
+/* CHART */
+function updateChart(income, expense){
+
+let ctx = document.getElementById("chart").getContext("2d");
+
+if(chart){
+chart.destroy();
+}
+
+chart = new Chart(ctx, {
+
+type: "bar",
+
+data: {
+labels: ["Income", "Expense"],
+
+datasets: [{
+label: "Amount",
+data: [income, expense]
+}]
+}
+});
+}
+</script>
+
+<!-- FOOTER -->
+<footer>
+
+<div>
+<a href="#" class="icon fb">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="#" class="icon yt">
+<i class="fab fa-youtube"></i>
+</a>
+
+<a href="#" class="icon tt">
+<i class="fab fa-tiktok"></i>
+</a>
+
+<a href="#" class="icon ig">
+<i class="fab fa-instagram"></i>
+</a>
+</div>
+
+<p>Email: busoro1972@gmail.com</p>
+
+<p>Phone: +250782160168</p>
+
+<p>© 2026 G.S Remera TSS</p>
+
+</footer>
+
+</body>
+</html>

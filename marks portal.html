@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marks Portal</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+
+body {
+  font-family: Arial;
+  margin: 20px;
+  background: #f4f6f9;
+}
+
+header{
+    background:rgb(5, 203, 238);
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+.header-title{
+    text-align:center;
+    font-size:40px;
+    font-weight:bold;
+}
+
+
+
+nav{
+display:flex;
+justify-content:center;
+background:#0055aa;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+z-index:100;
+flex-wrap:wrap;
+}
+
+nav a{
+padding:15px 20px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+position:relative;
+}
+
+nav a:hover{
+color: chartreuse;
+}
+
+nav a.active::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+width:100%;
+height:3px;
+background:#0073e6;
+border-radius:2px;
+}
+
+
+h2 {
+  text-align: center;
+}
+
+select, input {
+  padding: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  margin-top: 15px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+button {
+  padding: 10px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save { background: green; color: white; }
+.delete { background: red; color: white; }
+
+
+  
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+        canvas {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+        }
+  
+
+@media (max-width: 700px){
+    .mv-wrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.fb { background: #1877f2; }
+.yt { background: #ff0000; }
+.tt { background: #000000; }
+.ig { 
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+}
+
+
+.icon:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+footer{
+    background: rgb(5, 203, 238);
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+    
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+    
+   <a href="image.html">
+    <img src="2.png" alt="Image" height="100" style="margin-right: 20px;">
+</a>
+   <div style="text-align: center;font-size:50px"><b>WELCOME TO GS REMERA TSS</b></div>
+    <img src="3.png" alt="Image" height="100" style="margin-right: 20px;">
+    
+</header>
+
+<nav>
+    <a href="Home.html">Home</a>
+    <a href="department.html">Department</a>
+    <a href="stakeholder.html">Stakeholders</a>
+    <a href="log in2.html">Accounting</a>
+    <a href="log in.html">marks portal</a>
+    <a href="event.html">Events & publication</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+
+
+<div id="app">
+<h2>Marks Portal</h2>
+
+<label>Select Department:</label>
+<select v-model="department" @change="changeDepartment">
+  <option>Nursery</option>
+  <option>Primary</option>
+  <option>Secondary</option>
+  <option>TSS</option>
+</select>
+
+<p><b>Teacher:</b> {{ teacher }}</p>
+
+<table>
+<thead>
+<tr>
+  <th>Student</th>
+  <th v-for="sub in subjects">{{ sub }}</th>
+  <th>Total</th>
+  <th>Average</th>
+  <th>Grade</th>
+</tr>
+</thead>
+
+<tbody>
+<tr v-for="(student, index) in students">
+  <td>{{ student.name }}</td>
+
+  <td v-for="(sub, i) in subjects">
+    <input type="number" min="0" max="100"
+      v-model.number="student.marks[i]"
+      @input="calculate(student)">
+  </td>
+
+  <td>{{ student.total }}</td>
+  <td>{{ student.avg }}</td>
+  <td>{{ student.grade }}</td>
+</tr>
+</tbody>
+</table>
+
+<button class="save" @click="saveData">Save</button>
+<button class="delete" @click="deleteData">Delete</button>
+
+
+<script>
+const { createApp } = Vue;
+
+createApp({
+data() {
+  return {
+    department: "Nursery",
+    subjects: [],
+    teacher: "",
+    students: [
+      { name: "Aline Uwase", marks: [], total: 0, avg: 0, grade: "" },
+      { name: "Kevin Nshuti", marks: [], total: 0, avg: 0, grade: "" },
+      { name: "Diane Ingabire", marks: [], total: 0, avg: 0, grade: "" },
+      { name: "Eric Habimana", marks: [], total: 0, avg: 0, grade: "" },
+      { name: "Grace Mukamana", marks: [], total: 0, avg: 0, grade: "" }
+    ]
+  }
+},
+
+methods: {
+
+changeDepartment() {
+  if (this.department === "Nursery") {
+    this.subjects = ["Literacy", "Numeracy", "sports"];
+    this.teacher = "Nadine Ingabire";
+  }
+  else if (this.department === "Primary") {
+    this.subjects =["English", "Mathematics",  "Science"];
+    this.teacher = "Mukansanga Olive";
+  }
+  else if (this.department === "Secondary") {
+    this.subjects = ["Mathematics", "Phisics", " Biology"];
+    this.teacher = "Ntirenganya Jean Paul";
+  }
+  else if (this.department === "TSS") {
+    this.subjects = ["Computer science", "Entrepreneurship", "Mathematics"];
+    this.teacher = "Kabeza Jean Paul";
+  }
+
+  this.students.forEach(s => {
+    s.marks = new Array(this.subjects.length).fill(0);
+    this.calculate(s);
+  });
+},
+
+calculate(student) {
+  student.total = student.marks.reduce((a,b)=>a+b,0);
+  let avg = student.total / 3;
+  student.avg = avg.toFixed(1);
+
+  avg = Number(avg);
+
+  if (avg >= 80) student.grade = "A";
+  else if (avg >= 70) student.grade = "B";
+  else if (avg >= 60) student.grade = "C";
+  else if (avg >= 50) student.grade = "D";
+  else student.grade = "F";
+},
+
+saveData() {
+  localStorage.setItem("marksData", JSON.stringify({
+    department: this.department,
+    students: this.students
+  }));
+  alert("Saved!");
+},
+
+deleteData() {
+  localStorage.removeItem("marksData");
+  location.reload();
+}
+
+},
+
+mounted() {
+  this.changeDepartment();
+
+  let saved = JSON.parse(localStorage.getItem("marksData"));
+  if (saved) {
+    this.department = saved.department;
+    this.changeDepartment();
+    this.students = saved.students;
+  }
+}
+}).mount("#app");
+
+</script>
+
+<footer>
+    <div class="social-icons">
+  <a href="https://www.facebook.com" class="icon fb"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.youtube.com" class="icon yt"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.tiktok.com" class="icon tt"><i class="fab fa-tiktok"></i></a>
+  <a href="https://www.instagram.com" class="icon ig"><i class="fab fa-instagram"></i></a>
+</div>
+
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">Email: busoro1972@gmail.com</p>
+    <p style="text-align:center;">Phone:+250782160168</p>
+    <p>© 2026 G.S Remera TSS | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
