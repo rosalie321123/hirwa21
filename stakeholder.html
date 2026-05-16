@@ -13,50 +13,39 @@ body{
     background: url("11.jpeg") no-repeat center center fixed;
     background-size: cover;
 }
-
-/* HEADER */
 header{
-    background: rgb(5, 203, 238);
-    color: white;
-    padding: 20px;
+    background:rgb(5,203,238);
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
 }
 
 /* NAVIGATION */
-
-
 nav{
-display:flex;
-justify-content:center;
-background:#0055aa;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
-position:sticky;
-top:0;
-z-index:100;
-flex-wrap:wrap;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
 nav a{
-padding:15px 20px;
-text-decoration:none;
-color:white;
-font-weight:bold;
-position:relative;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    padding:10px 15px;
+    border-radius:6px;
+    transition:0.3s;
 }
 
 nav a:hover{
-color: chartreuse;
+    background:white;
+    color:#003366;
 }
 
-nav a.active::after{
-content:"";
-position:absolute;
-left:0;
-bottom:0;
-width:100%;
-height:3px;
-background:#0073e6;
-border-radius:2px;
-}
 
 /* SECTION */
 section{
@@ -85,7 +74,9 @@ section{
 .card:hover{
     transform:translateY(-5px);
 }
-
+h3{
+    color:#003366;
+}
 .card img{
     border-radius:10px;
 }
@@ -143,32 +134,24 @@ footer{
 </head>
 
 <body>
+<header>
 
-<!-- HEADER -->
-<header style="display:flex; justify-content:space-between; align-items:center;">
+<a href="image.html">
+    <img src="2.png" alt="Logo" height="100">
+</a>
 
-    <a href="image.html">
-        <img src="2.png" alt="Image" height="100">
-    </a>
-
-    <div style="text-align:center; font-size:50px;">
-        <b>WELCOME TO GS REMERA TSS</b>
-    </div>
-
-    <img src="3.png" alt="Image" height="100">
-
-</header>
-
-<!-- NAVIGATION -->
 <nav>
     <a href="Home.html">Home</a>
     <a href="department.html">Department</a>
     <a href="stakeholder.html">Stakeholders</a>
     <a href="log in2.html">Accounting</a>
     <a href="log in.html">Marks Portal</a>
-    <a href="event.html">Events & Publication</a>
+    <a href="event.html">Events</a>
     <a href="contact.html">Contact</a>
 </nav>
+
+    <img src="3.png" alt="Logo" height="100">
+</header>
 
 <!-- SECTION -->
 <section>
@@ -177,7 +160,7 @@ footer{
 
     <!-- CARD 1 -->
     <div class="card">
-        <img src="images.jpg" alt="Image" height="200" width="170">
+        <img src="images.jpg" alt="Image" width="200">
 
         <h2>Parents Section</h2>
 
@@ -191,7 +174,7 @@ footer{
     <!-- CARD 2 -->
     <div class="card">
 
-        <img src="3.png" alt="Image" height="200" width="150">
+        <img src="3.png" alt="Image"  width="150">
 
         <h2>Governments Section</h2>
 
@@ -204,7 +187,7 @@ footer{
     <!-- CARD 3 -->
     <div class="card">
 
-        <img src="aaa.jpg" alt="Image" height="200" width="200">
+        <img src="aaa.jpg" alt="Image"width="200">
 
         <h2>NGOs Section</h2>
 
@@ -217,7 +200,7 @@ footer{
     <!-- CARD 4 -->
     <div class="card">
 
-        <img src="90.jpg" alt="Image" height="200" width="150">
+        <img src="90.jpg" alt="Image" width="200">
 
         <h2>Donors / Sponsors Section</h2>
 
@@ -231,38 +214,101 @@ footer{
 
 </section>
 
-<!-- FOOTER -->
-<footer>
+    <div style="text-align:center;">
+    <img src="11a.png" style="width:900px; padding: 80px;">
+</div>
 
-    <div class="social-icons">
 
-        <a href="https://www.facebook.com" class="icon fb">
+<footer style="
+background:rgb(5,203,238);
+color:white;
+padding:30px 20px;
+">
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+flex-wrap:wrap;
+gap:30px;
+">
+
+    <!-- 1. LOGO -->
+   <div>
+        <a href="Home.html">
+            <img src="2.png" alt="Logo" height="200px;width:200px">
+        </a>
+    </div>
+
+    <!-- 2. QUICK LINKS -->
+    <div>
+        <h3>Quick Links</h3>
+
+        <p><a href="Home.html" style="color:white; text-decoration:none;">Home</a></p>
+
+        <p><a href="department.html" style="color:white; text-decoration:none;">Department</a></p>
+
+        <p><a href="stakeholder.html" style="color:white; text-decoration:none;">Stakeholders</a></p>
+
+        <p><a href="event.html" style="color:white; text-decoration:none;">Events</a></p>
+
+        <p><a href="contact.html" style="color:white; text-decoration:none;">Contact</a></p>
+        <p><a href="file:///C:/Users/USER/Desktop/Group2_GS%20REMERA%20WEBSITE/organisation.html" style="color:white; text-decoration:none;">Organization</a></p>
+    </div>
+
+    <!-- 3. CONTACT US -->
+    <div>
+        <h3>Contact Us</h3>
+
+        <p>Email: busoro1972@gmail.com</p>
+
+        <p>Phone: +250782160168</p>
+
+        <p>G.S Remera TSS</p>
+    </div>
+
+    <!-- 4. FOLLOW US -->
+    <div>
+        <h3>Follow Us</h3>
+
+        <a href="https://www.facebook.com/profile.php?id=61587210833693" class="icon fb" style="margin:10px; color:white; font-size:22px;">
             <i class="fab fa-facebook-f"></i>
         </a>
 
-        <a href="https://www.youtube.com" class="icon yt">
+        <a href="https://www.youtube.com/watch?v=YRhBfL3GEjQ&list=RDYRhBfL3GEjQ&start_radio=1" class="icon yt" style="margin:10px; color:white; font-size:22px;">
             <i class="fab fa-youtube"></i>
         </a>
 
-        <a href="https://www.tiktok.com" class="icon tt">
+        <a href="https://www.tiktok.com/@osamathelegend4" class="icon tt" style="margin:10px; color:white; font-size:22px;">
             <i class="fab fa-tiktok"></i>
         </a>
 
-        <a href="https://www.instagram.com" class="icon ig">
+        <a href="https://www.instagram.com/hirwaosama10/" class="icon ig" style="margin:10px; color:white; font-size:22px;">
             <i class="fab fa-instagram"></i>
         </a>
-
     </div>
 
-    <h2>Contact Us</h2>
+    <!-- 5. LOCATION -->
+    <div>
+        <h3>Location</h3>
 
-    <p>Email: busoro1972@gmail.com</p>
+          <iframe 
+        src="https://www.google.com/maps?q=G.S+REMERA+TSS+Rulindo+Cyinzuzi&output=embed"
+        allowfullscreen=""
+        loading="lazy" style="width: 200px;height: 200px;">
+    </iframe>
+</div>
+    </div>
 
-    <p>Phone: +250782160168</p>
+</div>
 
-    <p>© 2026 G.S Remera TSS | All Rights Reserved</p>
+<hr style="margin:20px 0; border:1px solid white;">
+
+<!-- COPYRIGHT -->
+<div style="text-align:center;">
+    <p>Copy right © 2026 G.S Remera TSS</p>
+</div>
 
 </footer>
-
 </body>
 </html>

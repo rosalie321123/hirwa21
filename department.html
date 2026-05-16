@@ -28,41 +28,28 @@ header{
     font-weight:bold;
 }
 
-/* NAV */
-
-
+/* NAVIGATION */
+/* NAVIGATION */
 nav{
-display:flex;
-justify-content:center;
-background:#0055aa;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
-position:sticky;
-top:0;
-z-index:100;
-flex-wrap:wrap;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
 nav a{
-padding:15px 20px;
-text-decoration:none;
-color:white;
-font-weight:bold;
-position:relative;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    padding:10px 15px;
+    border-radius:6px;
+    transition:0.3s;
 }
 
 nav a:hover{
-color: chartreuse;
-}
-
-nav a.active::after{
-content:"";
-position:absolute;
-left:0;
-bottom:0;
-width:100%;
-height:3px;
-background:#0073e6;
-border-radius:2px;
+    background:white;
+    color:#003366;
 }
 
 /* BOX */
@@ -74,7 +61,9 @@ border-radius:2px;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.3);
 }
-
+h3{
+    color:#003366;
+}
 /* BUTTON */
 .dep {
     background: #3498db;
@@ -85,6 +74,17 @@ border-radius:2px;
     cursor: pointer;
     font-weight: bold;
 }
+button{
+    width:100px;
+    padding:10px;
+    background:#003366;
+    color:white;
+    border:none;
+    cursor:pointer;
+    margin-top:5px;
+    border-radius:5px;
+}
+
 
 /* CONTENT (animation) */
 .content {
@@ -136,32 +136,36 @@ footer{
     padding:20px;
     margin-top:30px;
 }
+.dark-mode {
+    background:black;
+    color:white;
+}
+
+.dark-mode a {
+    color:lightblue;
+}
 </style>
 </head>
 
 <body>
-
 <header>
-   <a href="image.html">
-    <img src="2.png" height="100">
-   </a>
 
-  <div style="text-align: center;font-size:50px"><b>WELCOME TO GS REMERA TSS</b></div>
-
-   <img src="3.png" height="80">
-</header>
-
+<a href="image.html">
+    <img src="2.png" alt="Logo" height="100">
+</a>
 
 <nav>
-   
     <a href="Home.html">Home</a>
     <a href="department.html">Department</a>
     <a href="stakeholder.html">Stakeholders</a>
     <a href="log in2.html">Accounting</a>
-    <a href="log in.html">marks portal</a>
-    <a href="event.html">Events & publication</a>
+    <a href="log in.html">Marks Portal</a>
+    <a href="event.html">Events</a>
     <a href="contact.html">Contact</a>
 </nav>
+
+    <img src="3.png" alt="Logo" height="100">
+</header>
 
 <div class="box">
     <h1>GS remera TSS Department</h1>
@@ -441,23 +445,6 @@ footer{
 
 </div> 
 
-
-
-
-<footer>
-    <div class="social-icons">
-  <a href="https://www.facebook.com" class="icon fb"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://www.youtube.com" class="icon yt"><i class="fab fa-youtube"></i></a>
-  <a href="https://www.tiktok.com" class="icon tt"><i class="fab fa-tiktok"></i></a>
-  <a href="https://www.instagram.com" class="icon ig"><i class="fab fa-instagram"></i></a>
-</div>
-    <h2 style="text-align:center;">Contact Us</h2>
-    <p style="text-align:center;">Email: busoro1972@gmail.com</p>
-    <p style="text-align:center;">Phone:+250782160168</p>
-
-
-    <p>© 2026 G.S Remera TSS | All Rights Reserved</p>
-</footer>
 <script>
 function toggle(button) {
     let allContents = document.querySelectorAll(".content");
@@ -471,8 +458,102 @@ function toggle(button) {
     let content = button.nextElementSibling;
     content.classList.add("show");
 }
-</script>
 
+function darkMode() {
+    document.body.classList.toggle("dark-mode");
+}
+</script>
+<footer style="
+background:rgb(5,203,238);
+color:white;
+padding:30px 20px;
+">
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+flex-wrap:wrap;
+gap:30px;
+">
+
+    <!-- 1. LOGO -->
+   <div>
+        <a href="Home.html">
+            <img src="2.png" alt="Logo" height="200px;width:200px">
+        </a>
+    </div>
+
+    <!-- 2. QUICK LINKS -->
+    <div>
+        <h3>Quick Links</h3>
+
+        <p><a href="Home.html" style="color:white; text-decoration:none;">Home</a></p>
+
+        <p><a href="department.html" style="color:white; text-decoration:none;">Department</a></p>
+
+        <p><a href="stakeholder.html" style="color:white; text-decoration:none;">Stakeholders</a></p>
+
+        <p><a href="event.html" style="color:white; text-decoration:none;">Events</a></p>
+
+        <p><a href="contact.html" style="color:white; text-decoration:none;">Contact</a></p>
+        <p><a href="file:///C:/Users/USER/Desktop/Group2_GS%20REMERA%20WEBSITE/organisation.html" style="color:white; text-decoration:none;">Organization</a></p>
+    </div>
+
+    <!-- 3. CONTACT US -->
+    <div>
+        <h3>Contact Us</h3>
+
+        <p>Email: busoro1972@gmail.com</p>
+
+        <p>Phone: +250782160168</p>
+
+        <p>G.S Remera TSS</p>
+    </div>
+
+    <!-- 4. FOLLOW US -->
+    <div>
+        <h3>Follow Us</h3>
+
+        <a href="https://www.facebook.com/profile.php?id=61587210833693" class="icon fb" style="margin:10px; color:white; font-size:22px;">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=YRhBfL3GEjQ&list=RDYRhBfL3GEjQ&start_radio=1" class="icon yt" style="margin:10px; color:white; font-size:22px;">
+            <i class="fab fa-youtube"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@osamathelegend4" class="icon tt" style="margin:10px; color:white; font-size:22px;">
+            <i class="fab fa-tiktok"></i>
+        </a>
+
+        <a href="https://www.instagram.com/hirwaosama10/" class="icon ig" style="margin:10px; color:white; font-size:22px;">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <!-- 5. LOCATION -->
+    <div>
+        <h3>Location</h3>
+
+          <iframe 
+        src="https://www.google.com/maps?q=G.S+REMERA+TSS+Rulindo+Cyinzuzi&output=embed"
+        allowfullscreen=""
+        loading="lazy" style="width: 200px;height: 200px;">
+    </iframe>
+</div>
+    </div>
+
+</div>
+
+<hr style="margin:20px 0; border:1px solid white;">
+
+<!-- COPYRIGHT -->
+<div style="text-align:center;">
+    <p>Copy right © 2026 G.S Remera TSS</p>
+</div>
+
+</footer>
 
 </body>
 </html>

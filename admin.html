@@ -7,92 +7,84 @@
 <title>GS Remera TSS - Admin System</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial;
+    font-family:Arial, sans-serif;
 }
 
+/* BODY */
 body{
     background:#f4f6f9;
     overflow-x:hidden;
-    display:flex;
-    flex-direction:column;
-    min-height:100vh;
 }
 
+/* ================= HEADER ================= */
 header{
-    background:rgb(5, 203, 238);
+    height:120px;
+    width:100%;
+    background:rgb(5,203,238);
     color:white;
-    padding:20px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    width:100%;
-
-    position:relative;
-    z-index:1000;
-}
-
-
-
-nav{
-display:flex;
-justify-content:center;
-background:#0055aa;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
-position:sticky;
-top:0;
-z-index:100;
-flex-wrap:wrap;
-}
-
-nav a{
-padding:15px 20px;
-text-decoration:none;
-color:white;
-font-weight:bold;
-position:relative;
-}
-
-nav a:hover{
-color: chartreuse;
-}
-
-nav a.active::after{
-content:"";
-position:absolute;
-left:0;
-bottom:0;
-width:100%;
-height:3px;
-background:#0073e6;
-border-radius:2px;
-}
-
-/* SIDEBAR */
-.sidebar{
-    width:220px;
-    height:100vh;
-    background:#0b4a8b;
+    padding:0 20px;
     position:fixed;
     top:0;
     left:0;
-    padding-top:120px;
+    z-index:1000;
+}
 
+nav{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    padding:10px 15px;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:white;
+    color:#003366;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+    width:220px;
+    height:calc(100vh - 120px);
+    background:#0b4a8b;
+    position:fixed;
+    top:120px;
+    left:0;
+    padding-top:20px;
     z-index:500;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    transition:0.3s ease;
 }
 
 .sidebar a{
-    display:block;
-    color:white;
+    width:100%;
+    text-align:center;
     padding:15px;
+    color:white;
     text-decoration:none;
-    cursor:pointer;
+    transition:0.3s;
 }
 
 .sidebar a:hover{
@@ -100,14 +92,14 @@ border-radius:2px;
     color:#003366;
 }
 
-/* MAIN */
+/* ================= MAIN ================= */
 .main{
-    margin-left:230px;
+    margin-left:220px;
+    margin-top:120px;
     padding:30px;
-    flex:1;
 }
 
-/* CARDS */
+/* ================= CARDS ================= */
 .cards{
     display:flex;
     gap:20px;
@@ -126,7 +118,6 @@ border-radius:2px;
 .card i{
     font-size:40px;
     color:#003366;
-    margin-bottom:10px;
 }
 
 /* FORM */
@@ -142,7 +133,7 @@ border-radius:2px;
     border-top:5px solid #003366;
 }
 
-input,select{
+input, select{
     width:100%;
     padding:12px;
     margin-bottom:12px;
@@ -150,15 +141,15 @@ input,select{
     border:1px solid #ccc;
 }
 
-/* BUTTON */
+/* BUTTONS */
 button{
-    width:100%;
-    padding:12px;
+    padding:10px 15px;
     background:#003366;
     color:white;
     border:none;
     border-radius:8px;
     cursor:pointer;
+    transition:0.3s;
 }
 
 button:hover{
@@ -185,58 +176,73 @@ td{
     border:1px solid #ddd;
 }
 
-/* STATUS */
-.paid{color:green;font-weight:bold;}
-.pending{color:orange;font-weight:bold;}
+/* STATUS COLORS */
+.paid{
+    color:green;
+    font-weight:bold;
+}
 
-/* FOOTER (ON TOP OF SIDEBAR) */
+.pending{
+    color:orange;
+    font-weight:bold;
+}
+
+.unpaid{
+    color:red;
+    font-weight:bold;
+}
+
+/* FOOTER */
 footer{
-    background: rgb(5, 203, 238);
+    background:rgb(5, 203, 238);
     color:white;
     text-align:center;
     padding:20px;
     width:100%;
     margin-top:auto;
-
     position:relative;
     z-index:1000;
 }
-
-/* ICONS */
-.icon {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  margin: 10px;
-  text-align: center;
-  border-radius: 50%;
-  color: white;
-  font-size: 22px;
+h3{
+    color:#003366;
+}
+/* SOCIAL ICONS */
+.icon{
+    display:inline-block;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    margin:10px;
+    text-align:center;
+    border-radius:50%;
+    color:white;
+    font-size:22px;
 }
 
-.fb { background: #1877f2; }
-.yt { background: #ff0000; }
-.tt { background: #000000; }
-.ig { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4); }
+.fb{ background:#1877f2; }
+.yt{ background:#ff0000; }
+.tt{ background:#000000; }
+.ig{
+    background:linear-gradient(
+        45deg,
+        #f58529,
+        #dd2a7b,
+        #8134af,
+        #515bd4
+    );
+}
+
 
 </style>
 </head>
 
 <body>
-
-<!-- HEADER -->
 <header>
-    <a href="image.html">
-        <img src="2.png" height="80">
-    </a>
 
-    <h1>WELCOME TO GS REMERA TSS</h1>
+<a href="image.html">
+    <img src="2.png" alt="Logo" height="100">
+</a>
 
-    <img src="3.png" height="80">
-</header>
-
-<!-- NAV -->
 <nav>
     <a href="Home.html">Home</a>
     <a href="department.html">Department</a>
@@ -245,158 +251,487 @@ footer{
     <a href="log in.html">Marks Portal</a>
     <a href="event.html">Events</a>
     <a href="contact.html">Contact</a>
+   
 </nav>
+
+    <img src="3.png" alt="Logo" height="100">
+</header>
 
 <!-- SIDEBAR -->
 <div class="sidebar">
-    <a onclick="showDashboard()"><i class="fa fa-chart-line"></i> Dashboard</a>
-    <a onclick="showStudents()"><i class="fa fa-users"></i> Students</a>
-    <a onclick="showFinance()"><i class="fa fa-money-bill"></i> Finance</a>
+
+    <a onclick="showDashboard()">
+        <i class="fa fa-chart-line"></i> Dashboard
+    </a>
+
+    <a onclick="showStudents()">
+        <i class="fa fa-users"></i> Students
+    </a>
+
+    <a onclick="showFinance()">
+        <i class="fa fa-money-bill"></i> Finance
+    </a>
+
+    <!-- LOGOUT -->
+    <a onclick="logout()" style="color:red;">
+        <i class="fa fa-sign-out-alt"></i> Logout
+    </a>
+
 </div>
 
-<!-- MAIN -->
+<!-- MAIN CONTENT -->
 <div class="main">
     <div id="contentArea">
         <h2>Welcome Admin Dashboard</h2>
     </div>
 </div>
 
-<!-- SCRIPT -->
+
+
 <script>
 
+
+/* STUDENT ARRAY */
 let students = [];
 
+/* DASHBOARD */
 function showDashboard(){
+
     document.getElementById("contentArea").innerHTML = `
+
     <h2>Dashboard</h2>
+
     <div class="cards">
-        <div class="card"><i class="fa fa-user-graduate"></i><h3>Students</h3><h2>1,475</h2></div>
-        <div class="card"><i class="fa fa-chalkboard-teacher"></i><h3>Teachers</h3><h2>60</h2></div>
-        <div class="card"><i class="fa fa-money-bill"></i><h3>Finance</h3><h2>OK</h2></div>
-    </div>`;
+
+        <div class="card">
+            <i class="fa fa-user-graduate"></i>
+            <h3>Students</h3>
+            <h2>1,475</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-chalkboard-teacher"></i>
+            <h3>Teachers</h3>
+            <h2>60</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa fa-money-bill"></i>
+            <h3>Total Payments</h3>
+            <h2 id="total">0</h2>
+        </div>
+
+    </div>
+    `;
+
+    showTotalPayments();
 }
 
+/* LOGOUT */
+function logout(){
+
+    localStorage.removeItem("user");
+
+    alert("Logged out successfully!");
+
+    window.location.href = "log in2.html";
+}
+
+/* SHOW STUDENTS */
 function showStudents(){
+
     document.getElementById("contentArea").innerHTML = `
+
     <h2>Students Management</h2>
 
     <div class="form-box">
+
         <input id="sname" placeholder="Name">
+
         <input id="sclass" placeholder="Class">
+
         <input id="sage" type="number" placeholder="Age">
-        <button onclick="addStudent()">Save</button>
+
+        <button onclick="addStudent()">Save Student</button>
+
     </div>
 
     <table>
+
         <thead>
-            <tr><th>Name</th><th>Class</th><th>Age</th></tr>
+
+            <tr>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Age</th>
+            </tr>
+
         </thead>
+
         <tbody id="studentTable"></tbody>
-    </table>`;
+
+    </table>
+    `;
 
     loadStudents();
 }
 
+/* ADD STUDENT */
 function addStudent(){
+
     let name = document.getElementById("sname").value;
     let cls = document.getElementById("sclass").value;
     let age = document.getElementById("sage").value;
 
-    if(!name || !cls || !age) return alert("Fill all fields");
+    if(!name || !cls || !age){
 
-    students.push({name,cls,age});
+        alert("Please fill all fields");
+
+        return;
+    }
+
+    students.push({
+        name:name,
+        cls:cls,
+        age:age
+    });
+
     loadStudents();
 
-    document.getElementById("sname").value="";
-    document.getElementById("sclass").value="";
-    document.getElementById("sage").value="";
+    document.getElementById("sname").value = "";
+    document.getElementById("sclass").value = "";
+    document.getElementById("sage").value = "";
 }
 
+/* LOAD STUDENTS */
 function loadStudents(){
+
     let table = document.getElementById("studentTable");
+
     if(!table) return;
 
     table.innerHTML = "";
-    students.forEach(s=>{
+
+    students.forEach((s)=>{
+
         table.innerHTML += `
-        <tr><td>${s.name}</td><td>${s.cls}</td><td>${s.age}</td></tr>`;
+        <tr>
+            <td>${s.name}</td>
+            <td>${s.cls}</td>
+            <td>${s.age}</td>
+        </tr>
+        `;
     });
 }
 
+/* SHOW FINANCE */
 function showFinance(){
+
     document.getElementById("contentArea").innerHTML = `
-    <h2>Finance</h2>
+
+    <h2>Finance Management</h2>
 
     <div class="form-box">
-        <input id="pname" placeholder="Name">
+
+        <input id="pname" placeholder="Student Name">
+
         <input id="pclass" placeholder="Class">
-        <input id="pamount" placeholder="Amount">
+
+        <input id="pamount" type="number" placeholder="Amount">
+
         <select id="pstatus">
+
             <option>Paid</option>
             <option>Pending</option>
+            <option>Unpaid</option>
+
         </select>
-        <button onclick="addPayment()">Save</button>
+
+        <button onclick="addPayment()">Save Payment</button>
+
     </div>
 
     <table>
+
         <thead>
-            <tr><th>Name</th><th>Class</th><th>Amount</th><th>Status</th></tr>
+
+            <tr>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+
         </thead>
+
         <tbody id="paymentTable"></tbody>
-    </table>`;
+
+    </table>
+    `;
 
     showPayments();
 }
 
+
+
+/* ADD PAYMENT */
 function addPayment(){
+
     let payments = JSON.parse(localStorage.getItem("payments")) || [];
 
-    payments.push({
-        name: pname.value,
-        cls: pclass.value,
-        amount: pamount.value,
-        status: pstatus.value
-    });
+    let payment = {
 
-    localStorage.setItem("payments", JSON.stringify(payments));
+        name:document.getElementById("pname").value,
+        cls:document.getElementById("pclass").value,
+        amount:document.getElementById("pamount").value,
+        status:document.getElementById("pstatus").value
+    };
+
+    if(!payment.name || !payment.cls || !payment.amount){
+
+        alert("Please fill all fields");
+
+        return;
+    }
+
+    payments.push(payment);
+
+    localStorage.setItem(
+        "payments",
+        JSON.stringify(payments)
+    );
+
+    alert("Payment Saved Successfully");
+
     showPayments();
+
+    document.getElementById("pname").value = "";
+    document.getElementById("pclass").value = "";
+    document.getElementById("pamount").value = "";
 }
 
+/* SHOW PAYMENTS */
 function showPayments(){
+
     let payments = JSON.parse(localStorage.getItem("payments")) || [];
+
     let table = document.getElementById("paymentTable");
+
     if(!table) return;
 
     table.innerHTML = "";
 
-    payments.forEach(p=>{
+    payments.forEach((p,index)=>{
+
         table.innerHTML += `
+
         <tr>
+
             <td>${p.name}</td>
+
             <td>${p.cls}</td>
+
             <td>${p.amount}</td>
-            <td class="${p.status.toLowerCase()}">${p.status}</td>
-        </tr>`;
+
+            <td class="${p.status.toLowerCase()}">
+                ${p.status}
+            </td>
+
+            <td>
+
+                <button onclick="editPayment(${index})">
+                    Edit
+                </button>
+
+                <button onclick="deletePayment(${index})">
+                    Delete
+                </button>
+
+            </td>
+
+        </tr>
+        `;
     });
+
+    showTotalPayments();
 }
 
+/* DELETE PAYMENT */
+function deletePayment(index){
+
+    let payments = JSON.parse(localStorage.getItem("payments")) || [];
+
+    let confirmDelete = confirm(
+        "Are you sure you want to delete?"
+    );
+
+    if(confirmDelete){
+
+        payments.splice(index,1);
+
+        localStorage.setItem(
+            "payments",
+            JSON.stringify(payments)
+        );
+
+        showPayments();
+    }
+}
+
+/* EDIT PAYMENT */
+function editPayment(index){
+
+    let payments = JSON.parse(localStorage.getItem("payments")) || [];
+
+    let p = payments[index];
+
+    let newName = prompt("Edit Name", p.name);
+    let newClass = prompt("Edit Class", p.cls);
+    let newAmount = prompt("Edit Amount", p.amount);
+    let newStatus = prompt(
+        "Edit Status (Paid/Pending/Unpaid)",
+        p.status
+    );
+
+    if(newName && newClass && newAmount && newStatus){
+
+        payments[index] = {
+
+            name:newName,
+            cls:newClass,
+            amount:newAmount,
+            status:newStatus
+        };
+
+        localStorage.setItem(
+            "payments",
+            JSON.stringify(payments)
+        );
+
+        showPayments();
+    }
+}
+
+/* TOTAL PAYMENTS */
+function showTotalPayments(){
+
+    let payments = JSON.parse(localStorage.getItem("payments")) || [];
+
+    let total = 0;
+
+    payments.forEach((p)=>{
+
+        total += Number(p.amount) || 0;
+    });
+
+    let totalElement = document.getElementById("total");
+
+    if(totalElement){
+
+        totalElement.innerText = total;
+    }
+}
+
+/* LOAD DASHBOARD FIRST */
+window.onload = showDashboard;
+
 </script>
+<footer style="
+background:rgb(5,203,238);
+color:white;
+padding:30px 20px;
+">
 
-<!-- FOOTER -->
-<footer>
-    <div>
-        <a href="#" class="icon fb"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="icon yt"><i class="fab fa-youtube"></i></a>
-        <a href="#" class="icon tt"><i class="fab fa-tiktok"></i></a>
-        <a href="#" class="icon ig"><i class="fab fa-instagram"></i></a>
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+flex-wrap:wrap;
+gap:30px;
+">
+
+    <!-- 1. LOGO -->
+   <div>
+        <a href="Home.html">
+            <img src="2.png" alt="Logo" height="200px;width:200px">
+        </a>
     </div>
- <h2 style="text-align:center;">Contact Us</h2>
-    <p style="text-align:center;">Email: busoro1972@gmail.com</p>
-    <p style="text-align:center;">Phone:+250782160168</p>
 
+    <!-- 2. QUICK LINKS -->
+    <div>
+        <h3>Quick Links</h3>
 
-    <p>© 2026 G.S Remera TSS | All Rights Reserved</p>
+        <p><a href="Home.html" style="color:white; text-decoration:none;">Home</a></p>
+
+        <p><a href="department.html" style="color:white; text-decoration:none;">Department</a></p>
+
+        <p><a href="stakeholder.html" style="color:white; text-decoration:none;">Stakeholders</a></p>
+
+        <p><a href="event.html" style="color:white; text-decoration:none;">Events</a></p>
+
+        <p><a href="contact.html" style="color:white; text-decoration:none;">Contact</a></p>
+       <p><a href="file:///C:/Users/USER/Desktop/Group2_GS%20REMERA%20WEBSITE/organisation.html" style="color:white; text-decoration:none;">Organization</a></p>
+    </div>
+
+    <!-- 3. CONTACT US -->
+    <div>
+        <h3>Contact Us</h3>
+
+        <p>Email: busoro1972@gmail.com</p>
+
+        <p>Phone: +250782160168</p>
+
+        <p>G.S Remera TSS</p>
+    </div>
+
+    <!-- 4. FOLLOW US -->
+    <div>
+        <h3>Follow Us</h3>
+
+        <a href="https://www.facebook.com/profile.php?id=61587210833693" class="icon fb" style="margin:10px; color:white; font-size:22px;">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=YRhBfL3GEjQ&list=RDYRhBfL3GEjQ&start_radio=1" class="icon yt" style="margin:10px; color:white; font-size:22px;">
+            <i class="fab fa-youtube"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@osamathelegend4" class="icon tt" style="margin:10px; color:white; font-size:22px;">
+            <i class="fab fa-tiktok"></i>
+        </a>
+
+        <a href="https://www.instagram.com/hirwaosama10/" class="icon ig" style="margin:10px; color:white; font-size:22px;">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <!-- 5. LOCATION -->
+    <div>
+        <h3>Location</h3>
+
+          <iframe 
+        src="https://www.google.com/maps?q=G.S+REMERA+TSS+Rulindo+Cyinzuzi&output=embed"
+        allowfullscreen=""
+        loading="lazy" style="width: 200px;height: 200px;">
+    </iframe>
+</div>
+    </div>
+
+</div>
+
+<hr style="margin:20px 0; border:1px solid white;">
+<!-- DARK MODE BUTTON -->
+<div class="dark-mode-toggle">
+    <button id="darkModeBtn">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+</div>
+<!-- COPYRIGHT -->
+<div style="text-align:center;">
+    <p>Copy right © 2026 G.S Remera TSS</p>
+</div>
+
 </footer>
-
 </body>
 </html>

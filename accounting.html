@@ -9,223 +9,173 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-body{
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f4f6f9;
-    text-align: center;
+body {
+  font-family: Arial;
+  margin: 20px;
+  background: #f4f6f9;
+  text-align: center;
 }
-
 /* HEADER */
 header{
-    background: rgb(5, 203, 238);
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    background:rgb(5, 203, 238);
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
-
-.header-title{
-    font-size: 40px;
-    font-weight: bold;
-}
-
-
 nav{
-display:flex;
-justify-content:center;
-background:#0055aa;
-box-shadow:0 2px 5px rgba(0,0,0,0.1);
-position:sticky;
-top:0;
-z-index:100;
-flex-wrap:wrap;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
 nav a{
-padding:15px 20px;
-text-decoration:none;
-color:white;
-font-weight:bold;
-position:relative;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    padding:10px 15px;
+    border-radius:6px;
+    transition:0.3s;
 }
 
 nav a:hover{
-color: chartreuse;
+    background:white;
+    color:#003366;
 }
 
-nav a.active::after{
-content:"";
-position:absolute;
-left:0;
-bottom:0;
-width:100%;
-height:3px;
-background:#0073e6;
-border-radius:2px;
-}
 
 /* CONTAINER */
-.container{
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
+.container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.section{
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
+.section {
+  flex: 1;
+  min-width: 300px;
 }
 
 /* FORM */
-form{
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+form {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
 }
 
-label{
-    display: block;
-    text-align: left;
-    margin-top: 10px;
-    font-weight: bold;
+label {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-input{
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
-
+h3{
+    color:#003366;
+}
 /* SUMMARY */
-.summary{
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.summary {
+  margin-top: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
 }
-
-/* BUTTONS */
-button{
-    padding: 8px 15px;
-    margin-top: 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
+button {
+  padding: 6px 12px;  
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: auto;        
+  font-size: 14px;     
 }
-
-.save{
-    background: rgb(3, 222, 250);
-    color: white;
-}
-
-.delete{
-    background: rgb(25, 0, 255);
-    color: white;
-}
-
 button:hover{
-    opacity: 0.8;
+    background:#cafc03;
+}
+.save {
+  background: rgb(3, 222, 250);
+  color: white;
 }
 
-/* CHART */
-canvas{
-    background: white;
-    margin: 20px auto;
-    border-radius: 10px;
-    padding: 10px;
-    width: 90% !important;
-    max-width: 700px;
+.delete {
+  background: rgb(25, 0, 255);
+  color: white;
 }
 
 /* FOOTER */
 footer{
     background: rgb(5, 203, 238);
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
 }
 
 /* SOCIAL ICONS */
-.icon{
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    margin: 10px;
-    text-align: center;
-    border-radius: 50%;
-    color: white;
-    font-size: 22px;
+.icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 22px;
 }
 
-.fb{ background: #1877f2; }
-.yt{ background: #ff0000; }
-.tt{ background: #000; }
-.ig{
-    background: linear-gradient(
-    45deg,
-    #f58529,
-    #dd2a7b,
-    #8134af,
-    #515bd4
-    );
+.fb { background: #1877f2; }
+.yt { background: #ff0000; }
+.tt { background: #000; }
+.ig { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4); }
+.dark-mode {
+    background:black;
+    color:white;
+}
+
+.dark-mode a {
+    color:lightblue;
 }
 </style>
 </head>
 
 <body>
-
-<!-- HEADER -->
 <header>
 
 <a href="image.html">
-<img src="2.png" alt="School Logo" height="100">
+    <img src="2.png" alt="Logo" height="100">
 </a>
 
-<div class="header-title">
-WELCOME TO GS REMERA TSS
-</div>
-
-<img src="3.png" alt="School Logo" height="100">
-
-</header>
-
-<!-- NAVIGATION -->
 <nav>
-<a href="Home.html">Home</a>
-<a href="department.html">Department</a>
-<a href="stakeholder.html">Stakeholders</a>
-<a href="log in2.html">Accounting</a>
-<a href="log in.html">Marks Portal</a>
-<a href="event.html">Events & Publication</a>
-<a href="contact.html">Contact</a>
+    <a href="Home.html">Home</a>
+    <a href="department.html">Department</a>
+    <a href="stakeholder.html">Stakeholders</a>
+    <a href="log in2.html">Accounting</a>
+    <a href="log in.html">Marks Portal</a>
+    <a href="event.html">Events</a>
+    <a href="contact.html">Contact</a>
 </nav>
 
-<!-- TITLE -->
-<h2>School Accounting System</h2>
+    <img src="3.png" alt="Logo" height="100">
+</header>
 
-<img src="100.jpeg" alt="Accounting Image" height="100" width="100">
+<h2>School Accounting System</h2>
 
 <div class="container">
 
 <!-- INCOME FORM -->
 <div class="section">
 <h3>Income Form</h3>
-
 <form onsubmit="event.preventDefault(); calculate();">
 
 <label>School Fees</label>
@@ -245,7 +195,6 @@ WELCOME TO GS REMERA TSS
 <!-- EXPENSE FORM -->
 <div class="section">
 <h3>Expense Form</h3>
-
 <form onsubmit="event.preventDefault(); calculate();">
 
 <label>Salaries</label>
@@ -266,19 +215,12 @@ WELCOME TO GS REMERA TSS
 
 <!-- SUMMARY -->
 <div class="summary">
-
 <p>Total Income: <span id="totalIncome">0</span></p>
-
 <p>Total Expense: <span id="totalExpense">0</span></p>
-
-<p>
-<b>Net Balance: <span id="balance">0</span></b>
-</p>
+<p><b>Net Balance: <span id="balance">0</span></b></p>
 
 <button class="save" onclick="saveData()">Save</button>
-
 <button class="delete" onclick="clearData()">Delete</button>
-
 </div>
 
 <!-- CHART -->
@@ -288,128 +230,184 @@ WELCOME TO GS REMERA TSS
 let chart;
 
 /* CALCULATE */
-function calculate(){
+function calculate() {
+  let fees = Number(document.getElementById("fees").value) || 0;
+  let grant = Number(document.getElementById("grant").value) || 0;
+  let donations = Number(document.getElementById("donations").value) || 0;
 
-let fees = Number(document.getElementById("fees").value) || 0;
-let grant = Number(document.getElementById("grant").value) || 0;
-let donations = Number(document.getElementById("donations").value) || 0;
+  let salaries = Number(document.getElementById("salaries").value) || 0;
+  let materials = Number(document.getElementById("materials").value) || 0;
+  let infra = Number(document.getElementById("infra").value) || 0;
 
-let salaries = Number(document.getElementById("salaries").value) || 0;
-let materials = Number(document.getElementById("materials").value) || 0;
-let infra = Number(document.getElementById("infra").value) || 0;
+  let totalIncome = fees + grant + donations;
+  let totalExpense = salaries + materials + infra;
+  let balance = totalIncome - totalExpense;
 
-let totalIncome = fees + grant + donations;
-let totalExpense = salaries + materials + infra;
-let balance = totalIncome - totalExpense;
+  document.getElementById("totalIncome").innerText = totalIncome;
+  document.getElementById("totalExpense").innerText = totalExpense;
+  document.getElementById("balance").innerText = balance;
 
-document.getElementById("totalIncome").innerText = totalIncome;
-document.getElementById("totalExpense").innerText = totalExpense;
-document.getElementById("balance").innerText = balance;
-
-updateChart(totalIncome, totalExpense);
+  updateChart(totalIncome, totalExpense);
 }
 
 /* AUTO UPDATE */
 document.querySelectorAll("input").forEach(input => {
-input.addEventListener("input", calculate);
+  input.addEventListener("input", calculate);
 });
 
 /* SAVE */
-function saveData(){
-
-let data = {
-fees: document.getElementById("fees").value,
-grant: document.getElementById("grant").value,
-donations: document.getElementById("donations").value,
-salaries: document.getElementById("salaries").value,
-materials: document.getElementById("materials").value,
-infra: document.getElementById("infra").value
-};
-
-localStorage.setItem("accountingData", JSON.stringify(data));
-
-alert("Data Saved Successfully!");
+function saveData() {
+  let data = {
+    fees: fees.value,
+    grant: grant.value,
+    donations: donations.value,
+    salaries: salaries.value,
+    materials: materials.value,
+    infra: infra.value
+  };
+  localStorage.setItem("accountingData", JSON.stringify(data));
+  alert("Data Saved!");
 }
 
 /* LOAD */
-window.onload = function(){
-
-let saved = JSON.parse(localStorage.getItem("accountingData"));
-
-if(saved){
-
-document.getElementById("fees").value = saved.fees;
-document.getElementById("grant").value = saved.grant;
-document.getElementById("donations").value = saved.donations;
-document.getElementById("salaries").value = saved.salaries;
-document.getElementById("materials").value = saved.materials;
-document.getElementById("infra").value = saved.infra;
-}
-
-calculate();
+window.onload = function () {
+  let saved = JSON.parse(localStorage.getItem("accountingData"));
+  if (saved) {
+    fees.value = saved.fees;
+    grant.value = saved.grant;
+    donations.value = saved.donations;
+    salaries.value = saved.salaries;
+    materials.value = saved.materials;
+    infra.value = saved.infra;
+  }
+  calculate();
 };
 
 /* DELETE */
-function clearData(){
-
-localStorage.removeItem("accountingData");
-
-location.reload();
+function clearData() {
+  localStorage.removeItem("accountingData");
+  location.reload();
 }
 
 /* CHART */
-function updateChart(income, expense){
+function updateChart(income, expense) {
+  let ctx = document.getElementById("chart").getContext("2d");
 
-let ctx = document.getElementById("chart").getContext("2d");
+  if (chart) chart.destroy();
 
-if(chart){
-chart.destroy();
+  chart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Income", "Expense"],
+      datasets: [{
+        label: "Amount",
+        data: [income, expense]
+      }]
+    }
+  });
 }
 
-chart = new Chart(ctx, {
-
-type: "bar",
-
-data: {
-labels: ["Income", "Expense"],
-
-datasets: [{
-label: "Amount",
-data: [income, expense]
-}]
+function darkMode() {
+    document.body.classList.toggle("dark-mode");
 }
-});
+function logout() {
+    alert("You have been logged out!");
+    window.location.href = "log in.html"; // change to your login page name
 }
+
 </script>
+<footer style="
+background:rgb(5,203,238);
+color:white;
+padding:30px 20px;
+">
 
-<!-- FOOTER -->
-<footer>
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+flex-wrap:wrap;
+gap:30px;
+">
 
-<div>
-<a href="#" class="icon fb">
-<i class="fab fa-facebook-f"></i>
-</a>
+    <!-- 1. LOGO -->
+   <div>
+        <a href="Home.html">
+            <img src="2.png" alt="Logo" height="200px;width:200px">
+        </a>
+    </div>
 
-<a href="#" class="icon yt">
-<i class="fab fa-youtube"></i>
-</a>
+    <!-- 2. QUICK LINKS -->
+    <div>
+        <h3>Quick Links</h3>
 
-<a href="#" class="icon tt">
-<i class="fab fa-tiktok"></i>
-</a>
+        <p><a href="Home.html" style="color:white; text-decoration:none;">Home</a></p>
 
-<a href="#" class="icon ig">
-<i class="fab fa-instagram"></i>
-</a>
+        <p><a href="department.html" style="color:white; text-decoration:none;">Department</a></p>
+
+        <p><a href="stakeholder.html" style="color:white; text-decoration:none;">Stakeholders</a></p>
+
+        <p><a href="event.html" style="color:white; text-decoration:none;">Events</a></p>
+
+        <p><a href="contact.html" style="color:white; text-decoration:none;">Contact</a></p>
+       <p><a href="file:///C:/Users/USER/Desktop/Group2_GS%20REMERA%20WEBSITE/organisation.html" style="color:white; text-decoration:none;">Organization</a></p>
+    </div>
+
+    <!-- 3. CONTACT US -->
+    <div>
+        <h3>Contact Us</h3>
+
+        <p>Email: busoro1972@gmail.com</p>
+
+        <p>Phone: +250782160168</p>
+
+        <p>G.S Remera TSS</p>
+    </div>
+
+    <!-- 4. FOLLOW US -->
+    <div>
+        <h3>Follow Us</h3>
+
+        <a href="https://www.facebook.com/profile.php?id=61587210833693" class="icon fb" style="margin:10px; color:white; font-size:22px;">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=YRhBfL3GEjQ&list=RDYRhBfL3GEjQ&start_radio=1" class="icon yt" style="margin:10px; color:white; font-size:22px;">
+            <i class="fab fa-youtube"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@osamathelegend4" class="icon tt" style="margin:10px; color:white; font-size:22px;">
+            <i class="fab fa-tiktok"></i>
+        </a>
+
+        <a href="https://www.instagram.com/hirwaosama10/" class="icon ig" style="margin:10px; color:white; font-size:22px;">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <!-- 5. LOCATION -->
+    <div>
+        <h3>Location</h3>
+
+          <iframe 
+        src="https://www.google.com/maps?q=G.S+REMERA+TSS+Rulindo+Cyinzuzi&output=embed"
+        allowfullscreen=""
+        loading="lazy" style="width: 200px;height: 200px;">
+    </iframe>
+</div>
+    </div>
+
 </div>
 
-<p>Email: busoro1972@gmail.com</p>
+<hr style="margin:20px 0; border:1px solid white;">
 
-<p>Phone: +250782160168</p>
-
-<p>© 2026 G.S Remera TSS</p>
+<!-- COPYRIGHT -->
+<div style="text-align:center;">
+    <p>Copy right © 2026 G.S Remera TSS</p>
+</div>
 
 </footer>
+
 
 </body>
 </html>
